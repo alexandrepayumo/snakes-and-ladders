@@ -1,3 +1,4 @@
+
 public class LadderAndSnakes {
     private int[][] board = new int[10][10];
     public void displayBoard() {
