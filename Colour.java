@@ -11,7 +11,10 @@ public class Colour {
     public static String BackgroundRed = "\u001b[41m";
     public static String BackgroundBlue = "\u001b[41m";
     public static String BackgroundYellow = "\u001b[43m";
+    public static String BackgroundPurple = "\u001b[45m";
+    public static String BackgroundGreen = "\u001b[42m";
+    public static String BackgroundCyan = "\u001b[47m";
 
-
+    public static String[] PlayerColours = [Red, Blue, Yellow, Purple, Green, Cyan];
 
 }
