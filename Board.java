@@ -1,7 +1,16 @@
 public class Board{
-    private int size = 10;
+    private int size;
     private int[][] Snakes;
     private int[][] Ladders;
 
-    // create function for ladders and snakes
+    public Board(){
+        this.size = 10;
+        // create function for ladders and snakes
+    }
+
+    public int getSize(){
+        return this.size;
+    }
+
+    
 }

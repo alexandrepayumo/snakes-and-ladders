@@ -1,6 +1,8 @@
 
 public class LadderAndSnakes {
-    private int[][] board = new int[10][10];
+    Board laddersAndSnakesBoard = new Board();
+    
+    private int[][] board = new int[laddersAndSnakesBoard.getSize()][laddersAndSnakesBoard.getSize()];
     private int nbOfPlayers;
     
     public LadderAndSnakes(){
