@@ -10,7 +10,7 @@ public class LadderAndSnakes {
            for (int i = board.length-1; i > -1; i--){
             for (int j = board.length-1; j > -1; j--){
                 if (board[i][j] == 43){
-                    System.out.print("\u001b[31m" + board[i][j] + "\t" + "\033[0m");
+                    System.out.print(Colour.Blue + board[i][j] + "\t" + Colour.Reset);
                 }
                 else
                     System.out.print(board[i][j] + "\t");
