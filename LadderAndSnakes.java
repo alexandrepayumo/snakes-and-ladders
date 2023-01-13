@@ -1,3 +1,4 @@
+import java.util.Random;
 
 public class LadderAndSnakes {
     Board laddersAndSnakesBoard = new Board();
@@ -27,5 +28,10 @@ public class LadderAndSnakes {
             System.out.println();
             System.out.println();
            }
+    }
+
+    public int flipDice() {
+        Random random = new Random();
+        return random.nextInt(7);
     }
 }

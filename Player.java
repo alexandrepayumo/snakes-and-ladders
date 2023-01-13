@@ -5,6 +5,12 @@ public class Player {
 
     public Player(String name, String colour) {
         this.position = 0;
+        this.name = name;
+        this.colour = name;
+    }
+
+    public Player() {
+        this.position = 0;
         this.name = "";
         this.colour = "";
     }
