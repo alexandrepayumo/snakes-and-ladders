@@ -27,8 +27,13 @@ public class PlayLadderAndSnakes {
             System.exit(0);
         }
 
-        Player[] playerList = new Player[nbOfPlayers];
+        List<Player> playerList = new ArrayList<Player>();
+
+        for (int i=0; i<nbOfPlayers; i++) {
+            playerList.add(new Player());
+        }
         
+        //Can get rid of these variables and hard code them to make the file shorter
         String redText = "[r] for RED"; 
         String blueText = "[b] for BLUE";
         String greenText = "[g] for GREEN";
