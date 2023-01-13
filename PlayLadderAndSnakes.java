@@ -15,6 +15,15 @@ public class PlayLadderAndSnakes {
         System.out.print("\nStart by entering the number of players (maximum: 6): ");
         int nbOfPlayers = kb.nextInt();
 
+        if (nbOfPlayers > 2) {
+            System.out.println("Initialization was attempted for x members of players; however, this is only expected for and extended version of the game. Value will be set to 2");
+            nbOfPlayers = 2;
+        }
+        else if (nbOfPlayers < 2) {
+            System.out.println("Error: Cannot execute the game with less than 2 players! Will exit");
+            System.exit(0);
+        }
+        
         Player[] playerList = new Player[nbOfPlayers];
 
         for (int i = 0; i < nbOfPlayers; i++){
