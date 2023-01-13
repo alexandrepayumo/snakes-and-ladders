@@ -1,4 +1,7 @@
 import java.util.Scanner;
+import java.util.List;
+import java.util.ArrayList;
+// can probably combine all the import statements into 1 line
 
 public class PlayLadderAndSnakes {
     public static void main(String[] args) {
@@ -23,8 +26,24 @@ public class PlayLadderAndSnakes {
             System.out.println("Error: Cannot execute the game with less than 2 players! Will exit");
             System.exit(0);
         }
-        
+
         Player[] playerList = new Player[nbOfPlayers];
+        
+        String redText = "[r] for RED"; 
+        String blueText = "[b] for BLUE";
+        String greenText = "[g] for GREEN";
+        String yellowText = "[y] for YELLOW";
+        String purpleText = "[p] for PURPLE";
+        String cyanText = "[c] for CYAN";
+
+        //String colourTexts[] = new String[] {redText, blueText, greenText, yellowText, purpleText, cyanText};
+        List<String> list = new ArrayList<String>();
+        list.add(redText);
+        list.add(blueText);
+        list.add(greenText);
+        list.add(yellowText);
+        list.add(purpleText);
+        list.add(cyanText);
 
         for (int i = 0; i < nbOfPlayers; i++){
             
@@ -32,13 +51,19 @@ public class PlayLadderAndSnakes {
             System.out.print("Player " + (i+1) + ", what is your name? ");
             String playerName = kb.next();
             System.out.println(playerName + ", what colour do you choose?");
-            System.out.print("Enter [r] for RED, "
-                                + "[b] for BLUE, "
-                                + "[g] for GREEN, "
-                                + "[y] for YELLOW, "
-                                + "[p] for PURPLE, "
-                                + "[c] for CYAN: ");
+            System.out.print("Enter");
+            for (int j=0; j<list.size(); j++) {
+                if (j == 0) {
+                    System.out.print(" ");
+                }
+                else {
+                    System.out.print(", ");
+                }
+                System.out.print(list.get(j));
+            }
+
             String playerColour = kb.next();
+            list.remove(i+1);
         }
 
 
