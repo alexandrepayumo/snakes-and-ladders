@@ -7,6 +7,8 @@ public class PlayLadderAndSnakes {
         
         Scanner kb = new Scanner(System.in);
 
+        String[] PlayerColours = {Colour.Red, Colour.Blue, Colour.Yellow, Colour.Purple, Colour.Green, Colour.Cyan};
+
         // Greetings
         // ask how many players
         // create players (name, colour)
@@ -18,6 +20,8 @@ public class PlayLadderAndSnakes {
 
         Player[] playerList = new Player[nbOfPlayers];
 
+
+        // player creation
         for (int i = 0; i < nbOfPlayers; i++){
             
             System.out.println();
@@ -30,7 +34,24 @@ public class PlayLadderAndSnakes {
                                 + "[y] for \u001b[33mYELLOW" + Colour.Reset + ", "
                                 + "[p] for \u001b[35mPURPLE" + Colour.Reset + ", "
                                 + "[c] for \u001b[36mCYAN" + Colour.Reset + ": ");
-            String playerColour = kb.next();
+            String playerColour = kb.next().toLowerCase();
+
+            // colour choice
+
+            switch(playerColour){
+
+                case "r":
+                    // something
+                    break;
+               
+                case "b":
+                    // something
+                    break;
+                
+                case "g":
+                    // something
+                    break;
+            }
         }
 
 
