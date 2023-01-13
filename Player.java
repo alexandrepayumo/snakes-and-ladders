@@ -5,8 +5,35 @@ public class Player {
 
     public Player(String name, String colour) {
         this.position = 0;
-        this.name = name;
-        this.colour = colour;
+        this.name = "";
+        this.colour = "";
     }
+
+    // setters
+    public void setPosition(int position){
+        this.position = position;
+    }
+    public void setName(String name){
+        this.name = name;
+    }
+    public void setColour(String colour){
+        this.colour = colour; 
+    }
+
+    // getters
+    public int getPosition(){
+        return this.position;
+    }
+    public String getName(){
+        return this.name;
+    }
+    public String getColour(){
+        return this.colour;
+    }
+
+
+
+
+
     
 }
