@@ -8,7 +8,8 @@ public class PlayLadderAndSnakes {
         // Greetings
         // ask how many players
         // create players (name, colour)
-
+        LadderAndSnakes helperMethods = new LadderAndSnakes();
+        System.out.println(helperMethods.flipDice());
         System.out.println("\n~~~~~~~~~ Welcome to this game of Snakes and Ladders ~~~~~~~~~~");
 
         System.out.print("\nStart by entering the number of players (maximum: 6): ");
