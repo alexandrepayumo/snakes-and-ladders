@@ -6,7 +6,8 @@ public class Player {
     public Player(String name, String colour) {
         this.position = 0;
         this.name = name;
-        this.colour = name;
+        this.colour = colour;
+  
     }
 
     public Player() {
@@ -36,6 +37,12 @@ public class Player {
     public String getColour(){
         return this.colour;
     }
+
+    public String toString(){
+        return "(Player name: " + this.name + "; Colour: " + this.colour + ")";
+    }
+
+
 
 
 
