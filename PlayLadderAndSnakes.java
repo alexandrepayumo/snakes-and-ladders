@@ -42,14 +42,16 @@ public class PlayLadderAndSnakes {
         String cyanText = "[c] for CYAN";
 
         //String colourTexts[] = new String[] {redText, blueText, greenText, yellowText, purpleText, cyanText};
-        List<String> list = new ArrayList<String>();
-        list.add(redText);
-        list.add(blueText);
-        list.add(greenText);
-        list.add(yellowText);
-        list.add(purpleText);
-        list.add(cyanText);
+        List<String> colourList = new ArrayList<String>();
+        colourList.add(redText);
+        colourList.add(blueText);
+        colourList.add(greenText);
+        colourList.add(yellowText);
+        colourList.add(purpleText);
+        colourList.add(cyanText);
 
+
+        //Initializing playerList
         for (int i = 0; i < nbOfPlayers; i++){
             
             System.out.println();
@@ -57,18 +59,31 @@ public class PlayLadderAndSnakes {
             String playerName = kb.next();
             System.out.println(playerName + ", what colour do you choose?");
             System.out.print("Enter");
-            for (int j=0; j<list.size(); j++) {
+            for (int j=0; j<colourList.size(); j++) {
                 if (j == 0) {
                     System.out.print(" ");
                 }
                 else {
                     System.out.print(", ");
                 }
-                System.out.print(list.get(j));
+                System.out.print(colourList.get(j));
             }
 
             String playerColour = kb.next();
-            list.remove(i+1);
+            //could maybe use a dictionary to map each letter to a specific colour value instead of having all these if/else statements
+            //actually this would be much better because we need to dynamically change the number of available colours depending on what has already been chosen
+            if (playerColour.equals("b")) {
+
+            }
+            else if (playerColour.equals("")) {
+
+            }
+            else if (playerColour.equals("")) {
+
+            }
+            
+            //playerList.get(i.setColour());
+            colourList.remove(i+1);
         }
 
 
