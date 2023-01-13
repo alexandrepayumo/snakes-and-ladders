@@ -1,5 +1,7 @@
 import java.util.Scanner;
 
+
+
 public class PlayLadderAndSnakes {
     public static void main(String[] args) {
         
@@ -21,13 +23,13 @@ public class PlayLadderAndSnakes {
             System.out.println();
             System.out.print("Player " + (i+1) + ", what is your name? ");
             String playerName = kb.next();
-            System.out.println(playerName + ", what colour do you choose?");
-            System.out.print("Enter [r] for RED, "
-                                + "[b] for BLUE, "
-                                + "[g] for GREEN, "
-                                + "[y] for YELLOW, "
-                                + "[p] for PURPLE, "
-                                + "[c] for CYAN: ");
+            System.out.println("Choose your colour");
+            System.out.print("Enter [r] for \u001b[31mRED" + Colour.Reset + ", "
+                                + "[b] for \u001b[34mBLUE" + Colour.Reset + ", "
+                                + "[g] for \u001b[32mGREEN" + Colour.Reset + ", "
+                                + "[y] for \u001b[33mYELLOW" + Colour.Reset + ", "
+                                + "[p] for \u001b[35mPURPLE" + Colour.Reset + ", "
+                                + "[c] for \u001b[36mCYAN" + Colour.Reset + ": ");
             String playerColour = kb.next();
         }
 
