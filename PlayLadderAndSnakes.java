@@ -55,13 +55,21 @@ public class PlayLadderAndSnakes {
             String chosenColour = colours.getFromColourDict(playerColour);
 
             playerArray[i] = new Player(playerName, chosenColour);
-            System.out.println(playerArray[i]);
+            //System.out.println(playerArray[i]);
 
             
             //playerList.get(i.setColour());
             colours.removeInColourDict(playerColour);
             colours.removeInColourList(playerColour);
         }
+
+        //Display starting message
+        System.out.print("\nOkay ");
+        for (int i = 0; i < playerArray.length; i++){
+            System.out.print(playerArray[i].getColour() + playerArray[i].getName() + Colour.Reset + ", ");
+        }
+        System.out.println("let's play!");
+
 
 
 
