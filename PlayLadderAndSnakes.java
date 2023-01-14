@@ -68,6 +68,8 @@ public class PlayLadderAndSnakes {
         for (int i = 0; i < playerArray.length; i++){
             System.out.print(playerArray[i].getColour() + playerArray[i].getName() + Colour.Reset + ", ");
         }
+        System.out.println("let's play!");
+
 
         //for the order determination...
         //we need to have a while loop that loops until each player has an order
@@ -120,6 +122,8 @@ public class PlayLadderAndSnakes {
         /*while (hasWon == false) {
 
         }*/
+
+
 
 
 
