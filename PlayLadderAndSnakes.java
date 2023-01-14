@@ -70,7 +70,9 @@ public class PlayLadderAndSnakes {
         }
         System.out.println("let's play!");
 
-
+        LadderAndSnakes las = new LadderAndSnakes();
+        las.displayBoard();
+        /* 
         //for the order determination...
         //we need to have a while loop that loops until each player has an order
         //maybe each player should have a hasOrder attribute?
@@ -122,7 +124,7 @@ public class PlayLadderAndSnakes {
         /*while (hasWon == false) {
 
         }*/
-
+        
 
 
 
