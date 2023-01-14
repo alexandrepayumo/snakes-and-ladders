@@ -70,6 +70,9 @@ public class PlayLadderAndSnakes {
         }
         System.out.println("let's play!");
 
+        LadderAndSnakes las = new LadderAndSnakes();
+        las.displayBoard();
+
 
 
 
