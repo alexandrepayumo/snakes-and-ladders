@@ -22,6 +22,18 @@ public class LadderAndSnakes {
                 
                 if (board[i][j] == 100)
                     System.out.print(Colour.Yellow + board[i][j] + Colour.Reset + "\t");
+                
+                else if (Board.checkInArray(this.laddersAndSnakesBoard.getSnakes(), board[i][j]))
+                    System.out.print(Colour.Green + board[i][j] + Colour.Reset + "\t");
+                
+                else if (Board.checkInArrayEnd(this.laddersAndSnakesBoard.getSnakes(), board[i][j]))
+                    System.out.print(Colour.Red + board[i][j] + Colour.Reset + "\t");
+                
+                else if (Board.checkInArray(this.laddersAndSnakesBoard.getLadders(), board[i][j]))
+                    System.out.print(Colour.Blue + board[i][j] + Colour.Reset + "\t");
+                
+                else if (Board.checkInArrayEnd(this.laddersAndSnakesBoard.getLadders(), board[i][j]))
+                    System.out.print(Colour.Purple + board[i][j] + Colour.Reset + "\t");
                 else
                     System.out.print(board[i][j] + "\t");
             }
