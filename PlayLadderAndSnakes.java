@@ -70,9 +70,9 @@ public class PlayLadderAndSnakes {
         }
         System.out.println("let's play!");
 
-        LadderAndSnakes las = new LadderAndSnakes();
-        las.displayBoard();
-        /* 
+        //LadderAndSnakes las = new LadderAndSnakes();
+        //las.displayBoard();
+         
         //for the order determination...
         //we need to have a while loop that loops until each player has an order
         //maybe each player should have a hasOrder attribute?
@@ -93,7 +93,9 @@ public class PlayLadderAndSnakes {
         //so we probably need to keep track of two things: for the rerollers, first if they are still
         //in the rollersList list, and also if they have the same dice roll as someone else in the rollersList
 
-        List<Player> rollersList = new ArrayList();
+        //we may want to seperate first roll and the subsequent rolls into different loops
+        //may also need to use recursion
+        /*List<Player> rollersList = new ArrayList();
         for (int i=0; i<playerArray.length; i++) {
             rollersList.add(playerArray[i]);
         }
@@ -102,11 +104,53 @@ public class PlayLadderAndSnakes {
             for (int i=0; i<rollersList.size(); i++) {
 
             }
-        }
+        }*/
+
+        //WORK ON THE SOLUTION ABOVE IF WE HAVE TIME
 
         System.out.println("Now deciding which player will start playing;");
-        kb.next();
-        System.out.println("temp");
+        boolean isTie = true;
+        int tieCounter = 1;
+        while (isTie == true) {
+            for (int i = 0; i < playerArray.length; i++) {
+                playerArray[i].setOrderRoll(helperMethods.flipDice());
+                System.out.println(playerArray[i].getColour() + playerArray[i].getName() + Colour.Reset + " got a dice value of " + playerArray[i].getOrderRoll());
+            }
+            for (int i = 0; i < playerArray.length - 1; i++) {
+                int max = i;
+                for (int j = i + 1; j < playerArray.length; j++) {
+                    if (playerArray[j].getOrderRoll() > playerArray[i].getOrderRoll()) {
+                        max = j;
+                    }
+                }
+                if (max != i) {
+                    Player temp = playerArray[i];
+                    playerArray[i] = playerArray[max];
+                    playerArray[max] = temp;
+                }
+            }
+            for (int i = 0; i < playerArray.length - 1; i++) {
+                if (playerArray[i].getOrderRoll() == playerArray[i + 1].getOrderRoll()) {
+                    System.out.println("A tie was achieved between " + playerArray[i].getColour() + playerArray[i].getName() + Colour.Reset + " and " + playerArray[i+1].getColour() + playerArray[i+1].getName() + Colour.Reset + ". Attempting to break the tie");
+                    isTie = true;
+                    tieCounter++;
+                    continue;
+                }
+                else {
+                    isTie = false;
+                }
+            }
+        }
+        System.out.print("Reached final decision on order of playing. ");
+        for (int i = 0; i < playerArray.length; i++) {
+            if (i != playerArray.length - 1) {
+                System.out.print(playerArray[i].getColour() + playerArray[i].getName() + Colour.Reset + " then ");
+            }
+            else {
+                System.out.print(playerArray[i].getColour() + playerArray[i].getName() + Colour.Reset + ". ");
+            }
+        }
+        System.out.print("It took " + tieCounter + " attemps before a decision could be made.");
 
         //for the gameplay itself...
         //we want a while loop that restarts until a player has a position of 100
@@ -121,9 +165,9 @@ public class PlayLadderAndSnakes {
 
         boolean hasWon = false;
 
-        /*while (hasWon == false) {
+        while (hasWon == false) {
 
-        }*/
+        }
         
 
 
