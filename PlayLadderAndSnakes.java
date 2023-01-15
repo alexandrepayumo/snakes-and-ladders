@@ -174,14 +174,17 @@ public class PlayLadderAndSnakes {
         int turnCounter = 0;
         int diceRoll;
         while (hasWon == false) {
+            //MAY WANT TO TRANSFER ALL PRINT STATEMENTS IN Player.java CLASS
             if (turnCounter > playerArray.length - 1) {
-                turnCounter -= (playerArray.length - 1);
+                turnCounter -= playerArray.length;
             }
             diceRoll = las.flipDice();
             playerArray[turnCounter].movePlayer(diceRoll);
+            playerArray[turnCounter].handleLand(playerArray, las.getSnakes(), las.getLadders());
             System.out.println(playerArray[turnCounter].getColour() + playerArray[turnCounter].getName() + Colour.Reset + " got a dice value of " + diceRoll + "; now in square " + playerArray[turnCounter].getPosition());
-            if (playerArray[turnCounter].getPosition() > 100) {
-                //condition above will need to change to == 100
+            if (playerArray[turnCounter].getHasWon() == true) {
+                //playerArray[turnCounter].getPosition() > 100
+                //condition above will need to change to check if player hasWon attribute is true
                 hasWon = true;
             }
             turnCounter++;
