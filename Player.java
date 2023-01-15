@@ -20,6 +20,14 @@ public class Player {
         this.orderRoll = 0;
     }
 
+    public void movePlayer(int moveAmount) {
+        this.position += moveAmount;
+    }
+
+    public void handleLand() {
+        //handle all land cases here
+    }
+
     // setters
     public void setPosition(int position){
         this.position = position;
