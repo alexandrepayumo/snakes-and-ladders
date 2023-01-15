@@ -179,9 +179,10 @@ public class PlayLadderAndSnakes {
                 turnCounter -= playerArray.length;
             }
             diceRoll = las.flipDice();
+            System.out.print(playerArray[turnCounter].getColour() + playerArray[turnCounter].getName() + Colour.Reset + " got a dice value of " + diceRoll);
             playerArray[turnCounter].movePlayer(diceRoll);
             playerArray[turnCounter].handleLand(playerArray, las.getSnakes(), las.getLadders());
-            System.out.println(playerArray[turnCounter].getColour() + playerArray[turnCounter].getName() + Colour.Reset + " got a dice value of " + diceRoll + "; now in square " + playerArray[turnCounter].getPosition());
+            //System.out.println("; now in square " + playerArray[turnCounter].getPosition());
             if (playerArray[turnCounter].getHasWon() == true) {
                 //playerArray[turnCounter].getPosition() > 100
                 //condition above will need to change to check if player hasWon attribute is true

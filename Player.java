@@ -4,6 +4,7 @@ public class Player {
     private String colour;
     private int orderRoll;
     private boolean hasWon;
+    //private Colour col = new Colour();
     //does orderRoll need to be initialized in constructor or can it just be initialized using setter
     //methods called from the driver
     
@@ -32,16 +33,21 @@ public class Player {
         //handle all land cases here
         if (this.position == 100) {
             this.hasWon = true;
+            return;
         }
         //will need to take other player's positions as params as well as snake head and ladder foot locations
         for (int i = 0; i < snakes.length; i++) {
             if (this.position == snakes[i][0]) {
                 this.position = snakes[i][1];
+                System.out.println("; landed on a snake. Going down to square " + snakes[i][1]);
+                return;
             }
         }
         for (int i = 0; i < ladders.length; i++) {
             if (this.position == ladders[i][0]) {
                 this.position = ladders[i][1];
+                System.out.println("; landed on a ladder. Going up to square " + ladders[i][1]);
+                return;
             }
         }
         for (int i = 0; i < players.length; i++) {
@@ -49,6 +55,8 @@ public class Player {
                 players[i].setPosition(players[i].getPosition() - 1);
                 //players[i].handleLand(players, snakes, ladders);
                 //WTFFF
+                System.out.println("; now in square " + this.getPosition());
+                return;
             }
             //recursion?
             //might want to modify this statement to add a log to the console that the player has been bumped
@@ -58,7 +66,12 @@ public class Player {
             this.position -= backBounce;
             this.handleLand(players, snakes, ladders);
             //recursion?
+            //also might want to check if we bounced back onto someone else
+            System.out.println("; bounced back into square " + this.getPosition());
+            return;
         }
+        //if we haven't returned, we want default print statement
+        System.out.println("; now in square " + this.getPosition());
     }
 
     // setters
