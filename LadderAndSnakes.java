@@ -7,7 +7,7 @@ public class LadderAndSnakes {
     private int nbOfPlayers;
     
     public LadderAndSnakes(){
-
+        //laddersAndSnakesBoard = new Board();
     }
     
     public void displayBoard() {
@@ -44,6 +44,14 @@ public class LadderAndSnakes {
 
     public int flipDice() {
         Random random = new Random();
-        return random.nextInt(7);
+        return random.nextInt(6) + 1;
+    }
+
+    public int[][] getSnakes() {
+        return laddersAndSnakesBoard.getSnakes();
+    }
+
+    public int[][] getLadders() {
+        return laddersAndSnakesBoard.getLadders();
     }
 }
