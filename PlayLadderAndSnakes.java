@@ -11,8 +11,8 @@ public class PlayLadderAndSnakes {
         // Greetings
         // ask how many players
         // create players (name, colour)
-        LadderAndSnakes helperMethods = new LadderAndSnakes();
-        System.out.println(helperMethods.flipDice());
+        LadderAndSnakes las = new LadderAndSnakes();
+        System.out.println(las.flipDice());
         System.out.println("\n~~~~~~~~~ Welcome to this game of Snakes and Ladders ~~~~~~~~~~");
 
         System.out.print("\nStart by entering the number of players (maximum: 6): ");
@@ -69,9 +69,6 @@ public class PlayLadderAndSnakes {
             System.out.print(playerArray[i].getColour() + playerArray[i].getName() + Colour.Reset + ", ");
         }
         System.out.println("let's play!");
-
-        //LadderAndSnakes las = new LadderAndSnakes();
-        //las.displayBoard();
          
         //for the order determination...
         //we need to have a while loop that loops until each player has an order
@@ -113,7 +110,7 @@ public class PlayLadderAndSnakes {
         int tieCounter = 1;
         while (isTie == true) {
             for (int i = 0; i < playerArray.length; i++) {
-                playerArray[i].setOrderRoll(helperMethods.flipDice());
+                playerArray[i].setOrderRoll(las.flipDice());
                 System.out.println(playerArray[i].getColour() + playerArray[i].getName() + Colour.Reset + " got a dice value of " + playerArray[i].getOrderRoll());
             }
             for (int i = 0; i < playerArray.length - 1; i++) {
@@ -150,7 +147,7 @@ public class PlayLadderAndSnakes {
                 System.out.print(playerArray[i].getColour() + playerArray[i].getName() + Colour.Reset + ". ");
             }
         }
-        System.out.print("It took " + tieCounter + " attemps before a decision could be made.");
+        System.out.println("It took " + tieCounter + " attemps before a decision could be made.");
 
         //for the gameplay itself...
         //we want a while loop that restarts until a player has a position of 100
@@ -162,11 +159,32 @@ public class PlayLadderAndSnakes {
         //should maybe have the logic for move player to be inside the Player class
         //after the user moves, we need to check if the player has a position of 100. if he/she has,
         //set hasWon to true
+        System.out.println();
+        System.out.println("Color code: ");
+        System.out.println(Colour.Yellow + "YELLOW" + Colour.Reset + " is the finish line.");
+        System.out.println(Colour.Green + "GREEN" + Colour.Reset + " is the snake head.");
+        System.out.println(Colour.Red + "RED" + Colour.Reset + " is the snake tail.");
+        System.out.println(Colour.Blue + "BLUE" + Colour.Reset + " is the ladder start.");
+        System.out.println(Colour.Purple + "PURPLE" + Colour.Reset + " is the ladder head.");
+        System.out.println();
+
+        las.displayBoard();
 
         boolean hasWon = false;
-
+        int turnCounter = 0;
+        int diceRoll;
         while (hasWon == false) {
-
+            if (turnCounter > playerArray.length - 1) {
+                turnCounter -= (playerArray.length - 1);
+            }
+            diceRoll = las.flipDice();
+            playerArray[turnCounter].movePlayer(diceRoll);
+            System.out.println(playerArray[turnCounter].getColour() + playerArray[turnCounter].getName() + Colour.Reset + " got a dice value of " + diceRoll + "; now in square " + playerArray[turnCounter].getPosition());
+            if (playerArray[turnCounter].getPosition() > 100) {
+                //condition above will need to change to == 100
+                hasWon = true;
+            }
+            turnCounter++;
         }
         
 
