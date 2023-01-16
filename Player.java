@@ -26,6 +26,7 @@ public class Player {
 
     public void movePlayer(int moveAmount) {
         this.position += moveAmount;
+        //System.out.println("POSITION: " + this.position);
     }
 
     public void handleLand(Player[] players, int[][] snakes, int[][] ladders) {
@@ -50,12 +51,14 @@ public class Player {
                 return;
             }
         }
+        //THE CODE BELOW MIGHT BE PROBLEMATIC
+        //It might be checking if the player landed on a tile with itself
         for (int i = 0; i < players.length; i++) {
-            if (this.position == players[i].getPosition()) {
+            if (this.name != players[i].name && this.position == players[i].getPosition() && this.position != 0) {
                 players[i].setPosition(players[i].getPosition() - 1);
-                //players[i].handleLand(players, snakes, ladders);
+                players[i].handleLand(players, snakes, ladders);
                 //WTFFF
-                System.out.println("; now in square " + this.getPosition());
+                System.out.println("; now in square " + this.position);
                 return;
             }
             //recursion?
@@ -67,11 +70,11 @@ public class Player {
             this.handleLand(players, snakes, ladders);
             //recursion?
             //also might want to check if we bounced back onto someone else
-            System.out.println("; bounced back into square " + this.getPosition());
+            System.out.println("; bounced back into square " + this.position);
             return;
         }
         //if we haven't returned, we want default print statement
-        System.out.println("; now in square " + this.getPosition());
+        System.out.println("; now in square " + this.position);
     }
 
     // setters
