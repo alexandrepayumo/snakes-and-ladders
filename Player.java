@@ -65,12 +65,14 @@ public class Player {
             //might want to modify this statement to add a log to the console that the player has been bumped
         }
         if (this.position > 100) {
+            //this is not working yo
             int backBounce = this.position - 100;
-            this.position -= backBounce;
+            //System.out.println("BACKBOUNCE: " + backBounce);
+            this.position = 100 - backBounce;
+            System.out.println("; bounced back into square " + this.position);
             this.handleLand(players, snakes, ladders);
             //recursion?
             //also might want to check if we bounced back onto someone else
-            System.out.println("; bounced back into square " + this.position);
             return;
         }
         //if we haven't returned, we want default print statement
