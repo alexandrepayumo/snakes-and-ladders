@@ -175,6 +175,8 @@ public class PlayLadderAndSnakes {
         boolean hasWon = false;
         int turnCounter = 0;
         int diceRoll;
+        
+        //do we really need to print the "Game not over line" it seems kindof dumb to print it so often
         while (hasWon == false) {
             kb.nextLine();
             //MAY WANT TO TRANSFER ALL PRINT STATEMENTS IN Player.java CLASS
