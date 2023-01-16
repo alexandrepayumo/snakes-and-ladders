@@ -34,6 +34,7 @@ public class Player {
         //handle all land cases here
         if (this.position == 100) {
             this.hasWon = true;
+            System.out.println();
             return;
         }
         //will need to take other player's positions as params as well as snake head and ladder foot locations
@@ -69,8 +70,10 @@ public class Player {
             int backBounce = this.position - 100;
             //System.out.println("BACKBOUNCE: " + backBounce);
             this.position = 100 - backBounce;
-            System.out.println("; bounced back into square " + this.position);
+            System.out.print("; bounced");
+            //System.out.println("; bounced back into square " + this.position);
             this.handleLand(players, snakes, ladders);
+            //we need a way for the line above not to reprint text after handling bounce again
             //recursion?
             //also might want to check if we bounced back onto someone else
             return;
