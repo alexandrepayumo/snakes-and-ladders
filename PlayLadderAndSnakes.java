@@ -187,6 +187,7 @@ public class PlayLadderAndSnakes {
                 //playerArray[turnCounter].getPosition() > 100
                 //condition above will need to change to check if player hasWon attribute is true
                 hasWon = true;
+                System.out.println(playerArray[turnCounter].getColour() + playerArray[turnCounter].getName() + Colour.Reset + " has won!");
             }
             turnCounter++;
         }
