@@ -167,6 +167,8 @@ public class PlayLadderAndSnakes {
         System.out.println(Colour.Blue + "BLUE" + Colour.Reset + " is the ladder start.");
         System.out.println(Colour.Purple + "PURPLE" + Colour.Reset + " is the ladder head.");
         System.out.println();
+        System.out.println("Press ENTER to go to the next turn...");
+        System.out.println();
 
         las.displayBoard();
 
@@ -174,6 +176,7 @@ public class PlayLadderAndSnakes {
         int turnCounter = 0;
         int diceRoll;
         while (hasWon == false) {
+            kb.nextLine();
             //MAY WANT TO TRANSFER ALL PRINT STATEMENTS IN Player.java CLASS
             if (turnCounter > playerArray.length - 1) {
                 turnCounter -= playerArray.length;

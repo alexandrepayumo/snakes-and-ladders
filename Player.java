@@ -57,9 +57,10 @@ public class Player {
         for (int i = 0; i < players.length; i++) {
             if (this.name != players[i].name && this.position == players[i].getPosition() && this.position != 0) {
                 players[i].setPosition(players[i].getPosition() - 1);
+                System.out.println("; now in square " + this.position);
+                System.out.print(players[i].getColour() + players[i].getName() + Colour.Reset + " rolled back");
                 players[i].handleLand(players, snakes, ladders);
                 //WTFFF
-                System.out.println("; now in square " + this.position);
                 return;
             }
             //recursion?
