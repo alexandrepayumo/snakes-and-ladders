@@ -109,6 +109,7 @@ public class PlayLadderAndSnakes {
         boolean isTie = true;
         int tieCounter = 1;
         while (isTie == true) {
+            kb.nextLine();
             for (int i = 0; i < playerArray.length; i++) {
                 playerArray[i].setOrderRoll(las.flipDice());
                 System.out.println(playerArray[i].getColour() + playerArray[i].getName() + Colour.Reset + " got a dice value of " + playerArray[i].getOrderRoll());
@@ -148,6 +149,7 @@ public class PlayLadderAndSnakes {
             }
         }
         System.out.println("It took " + tieCounter + " attemps before a decision could be made.");
+        kb.nextLine();
 
         //for the gameplay itself...
         //we want a while loop that restarts until a player has a position of 100
@@ -169,6 +171,7 @@ public class PlayLadderAndSnakes {
         System.out.println();
         System.out.println("Press ENTER to go to the next turn...");
         System.out.println();
+        kb.nextLine();
 
         las.displayBoard();
 
