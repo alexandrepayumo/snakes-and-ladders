@@ -24,20 +24,16 @@ public class LadderAndSnakes {
            for (int i = board.length-1; i > -1; i--){
             for (int j = board.length-1; j > -1; j--){
                 //Print a different colour depending on the board position
+            
                 if (board[i][j] == 100)
                     System.out.print(Colour.Yellow + board[i][j] + Colour.Reset + "\t");
                 
                 else if (Board.checkInArray(this.laddersAndSnakesBoard.getSnakes(), board[i][j]))
-                    System.out.print(Colour.Green + board[i][j] + Colour.Reset + "\t");
-                
-                else if (Board.checkInArrayEnd(this.laddersAndSnakesBoard.getSnakes(), board[i][j]))
                     System.out.print(Colour.Red + board[i][j] + Colour.Reset + "\t");
                 
                 else if (Board.checkInArray(this.laddersAndSnakesBoard.getLadders(), board[i][j]))
-                    System.out.print(Colour.Blue + board[i][j] + Colour.Reset + "\t");
+                    System.out.print(Colour.Green + board[i][j] + Colour.Reset + "\t");
                 
-                else if (Board.checkInArrayEnd(this.laddersAndSnakesBoard.getLadders(), board[i][j]))
-                    System.out.print(Colour.Purple + board[i][j] + Colour.Reset + "\t");
                 else
                     System.out.print(board[i][j] + "\t");
             }
