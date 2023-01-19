@@ -1,3 +1,9 @@
+// -----------------------------------------------------
+// Assignment 1
+// Written by: Alexandre Payumo 40249777, Benjamin Nguyen 40242621
+// -----------------------------------------------------
+
+
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Hashtable;

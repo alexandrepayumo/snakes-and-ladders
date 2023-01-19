@@ -1,4 +1,11 @@
+// -----------------------------------------------------
+// Assignment 1
+// Written by: Alexandre Payumo 40249777, Benjamin Nguyen 40242621
+// -----------------------------------------------------
+
+
 public class Board{
+    //SHOULD MAYBE INITIALIZE THESE VAIRABLES IN A CONSTRUCTOR?
     private int size;
     private int[][] snakes = new int[9][2];
     private int[][] ladders = new int[9][2];

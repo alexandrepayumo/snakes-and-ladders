@@ -1,7 +1,16 @@
-import java.util.Scanner;
-import java.util.*;
+// -----------------------------------------------------
+// Assignment 1
+// Written by: Alexandre Payumo 40249777, Benjamin Nguyen 40242621
+// -----------------------------------------------------
 
-// can probably combine all the import statements into 1 line
+//This program is meant to simulate a snakes and ladders game. In this driver file, must begin by
+//greeting the user, and asking for certain parameters such as the number of players, their names,
+//and which colour they will be using. Then, this file determines who starts the snakes and ladders game,
+//displays the board and ultimately ends with something winning the game.
+
+import java.util.Scanner;
+import java.util.List;
+import java.util.ArrayList;
 
 public class PlayLadderAndSnakes {
     public static void main(String[] args) {
@@ -55,10 +64,7 @@ public class PlayLadderAndSnakes {
             String chosenColour = colours.getFromColourDict(playerColour);
 
             playerArray[i] = new Player(playerName, chosenColour);
-            //System.out.println(playerArray[i]);
 
-            
-            //playerList.get(i.setColour());
             colours.removeInColourDict(playerColour);
             colours.removeInColourList(playerColour);
         }
@@ -69,41 +75,6 @@ public class PlayLadderAndSnakes {
             System.out.print(playerArray[i].getColour() + playerArray[i].getName() + Colour.Reset + ", ");
         }
         System.out.println("let's play!");
-         
-        //for the order determination...
-        //we need to have a while loop that loops until each player has an order
-        //maybe each player should have a hasOrder attribute?
-        //actually we probably don't need hasOrder attribute if we just keep a rollersList instead
-        //REMEMBER: this needs to work for more than 2 players... should work for n amount of players
-        //on each iteration of the for loop, we need to roll the dice for every player that hasn't
-        //rolled yet or has the same roll number as someone else
-        //after rolling, we need to set the roll attribute of each player that rolled to the dice they rolled
-        //and sort the list based on what the new rolls of players are. do not sort the players that have
-        //not rolled on that turn.
-        //to determine if a player is still rolling, after everyone rolls on a turn, check if their roll
-        //has a duplicate in the list of players. if it doesn't, then remove them from the list.
-        //therefore we need one array and one list. we need a sorted player array, and we need a list
-        //that contains all the players that still need to roll
-        //the while statement condition should be to check if the size of the list is bigger than 0
-        //we also need to process the rerollers seperately... for example if two people tied at 2,
-        //they need to roll seperately than the people that tied at 4
-        //so we probably need to keep track of two things: for the rerollers, first if they are still
-        //in the rollersList list, and also if they have the same dice roll as someone else in the rollersList
-
-        //we may want to seperate first roll and the subsequent rolls into different loops
-        //may also need to use recursion
-        /*List<Player> rollersList = new ArrayList();
-        for (int i=0; i<playerArray.length; i++) {
-            rollersList.add(playerArray[i]);
-        }
-
-        while (rollersList.size() > 0) {
-            for (int i=0; i<rollersList.size(); i++) {
-
-            }
-        }*/
-
-        //WORK ON THE SOLUTION ABOVE IF WE HAVE TIME
 
         System.out.println("Now deciding which player will start playing;");
         boolean isTie = true;
@@ -151,16 +122,7 @@ public class PlayLadderAndSnakes {
         System.out.println("It took " + tieCounter + " attemps before a decision could be made.");
         kb.nextLine();
 
-        //for the gameplay itself...
-        //we want a while loop that restarts until a player has a position of 100
-        //inside of this while loop, we want a for loop that iterates through both players
-        //the iteration of both players should be sorted in the order that was determined in the
-        //initial dice roll orders.
-        //inside of this for loop, we want to roll the dice for the player, then move the player,
-        //then check where the player landed and do something accordingly
-        //should maybe have the logic for move player to be inside the Player class
-        //after the user moves, we need to check if the player has a position of 100. if he/she has,
-        //set hasWon to true
+        //Displaying the colour code for the board
         System.out.println();
         System.out.println("Color code: ");
         System.out.println(Colour.Yellow + "YELLOW" + Colour.Reset + " is the finish line.");
@@ -173,41 +135,33 @@ public class PlayLadderAndSnakes {
         System.out.println();
         kb.nextLine();
 
+        //Displaying the board
         las.displayBoard();
 
         boolean hasWon = false;
         int turnCounter = 0;
         int diceRoll;
         
-        //do we really need to print the "Game not over line" it seems kindof dumb to print it so often
+        //While loop that restarts until a player has won the game
         while (hasWon == false) {
             kb.nextLine();
-            //MAY WANT TO TRANSFER ALL PRINT STATEMENTS IN Player.java CLASS
+            //The condition below allows to alternate between players rolling
             if (turnCounter > playerArray.length - 1) {
                 turnCounter -= playerArray.length;
             }
+            //Rolling dice
             diceRoll = las.flipDice();
             System.out.print(playerArray[turnCounter].getColour() + playerArray[turnCounter].getName() + Colour.Reset + " got a dice value of " + diceRoll);
+            //Moving player and handling the land depending on what the player landed on
             playerArray[turnCounter].movePlayer(diceRoll);
             playerArray[turnCounter].handleLand(playerArray, las.getSnakes(), las.getLadders());
-            //System.out.println("; now in square " + playerArray[turnCounter].getPosition());
+            //The condition below is only triggered if a player has won
             if (playerArray[turnCounter].getHasWon() == true) {
-                //playerArray[turnCounter].getPosition() > 100
-                //condition above will need to change to check if player hasWon attribute is true
                 hasWon = true;
                 System.out.println(playerArray[turnCounter].getColour() + playerArray[turnCounter].getName() + Colour.Reset + " has won!");
             }
             turnCounter++;
         }
-        
-
-
-
-
-
-
-        
-        
     }
 }
 
