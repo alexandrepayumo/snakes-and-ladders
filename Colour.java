@@ -13,21 +13,21 @@ import java.util.Hashtable;
 
 public class Colour {
     //Codes for text colour
-    public static String Reset = "\u001b[0m";
-    public static String Red = "\u001b[31m";
-    public static String Blue = "\u001b[34m";
-    public static String Yellow = "\u001b[33m";
-    public static String Purple = "\u001b[35m";
-    public static String Green = "\u001b[32m";
-    public static String Cyan = "\u001b[36m";
+    public static final String Reset = "\u001b[0m";
+    public static final String Red = "\u001b[31m";
+    public static final String Blue = "\u001b[34m";
+    public static final String Yellow = "\u001b[33m";
+    public static final String Purple = "\u001b[35m";
+    public static final String Green = "\u001b[32m";
+    public static final String Cyan = "\u001b[36m";
 
     //Codes for text background colour
-    public static String BackgroundRed = "\u001b[41m";
-    public static String BackgroundBlue = "\u001b[44m";
-    public static String BackgroundYellow = "\u001b[43m";
-    public static String BackgroundPurple = "\u001b[45m";
-    public static String BackgroundGreen = "\u001b[42m";
-    public static String BackgroundCyan = "\u001b[46m";
+    public static final String BackgroundRed = "\u001b[41m";
+    public static final String BackgroundBlue = "\u001b[44m";
+    public static final String BackgroundYellow = "\u001b[43m";
+    public static final String BackgroundPurple = "\u001b[45m";
+    public static final String BackgroundGreen = "\u001b[42m";
+    public static final String BackgroundCyan = "\u001b[46m";
 
 
     private List<String> colourList = new ArrayList();

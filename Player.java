@@ -10,6 +10,7 @@ public class Player {
     private String colour;
     private int orderRoll;
     private boolean hasWon;
+    private String colourBackground;
     //private Colour col = new Colour();
     //does orderRoll need to be initialized in constructor or can it just be initialized using setter
     //methods called from the driver
@@ -20,6 +21,27 @@ public class Player {
         this.colour = colour;
         this.orderRoll = 0;
         this.hasWon = false;
+        
+        switch(colour){
+            case Colour.Red:
+                this.colourBackground = Colour.BackgroundRed;
+                break;
+            case Colour.Blue:
+                this.colourBackground = Colour.BackgroundBlue;
+                break;
+            case Colour.Green:
+                this.colourBackground = Colour.BackgroundGreen;
+                break;
+            case Colour.Yellow:
+                this.colourBackground = Colour.BackgroundYellow;
+                break;
+            case Colour.Purple:
+                this.colourBackground = Colour.BackgroundPurple;
+                break;
+            case Colour.Cyan:
+                this.colourBackground = Colour.BackgroundCyan;
+                break;
+        }
     }
 
     public Player() {
@@ -28,6 +50,7 @@ public class Player {
         this.colour = "";
         this.orderRoll = 0;
         this.hasWon = false;
+        this.colourBackground = "";
     }
 
     public void movePlayer(int moveAmount) {
@@ -112,6 +135,9 @@ public class Player {
     }
     public String getColour(){
         return this.colour;
+    }
+    public String getBackgroundColour() {
+        return this.colourBackground;
     }
     public int getOrderRoll(){
         return this.orderRoll;

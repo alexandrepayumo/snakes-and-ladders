@@ -130,8 +130,8 @@ public class PlayLadderAndSnakes {
         System.out.println();
         System.out.println("Color code: ");
         System.out.println(Colour.Yellow + "YELLOW" + Colour.Reset + " is the finish line.");
-        System.out.println(Colour.Green + "RED" + Colour.Reset + " is the head of a snake.");
-        System.out.println(Colour.Red + "GREEN" + Colour.Reset + " is the bottom of a ladder.");
+        System.out.println(Colour.Red + "RED" + Colour.Reset + " is the head of a snake.");
+        System.out.println(Colour.Green + "GREEN" + Colour.Reset + " is the bottom of a ladder.");
         
         System.out.println();
         System.out.print("Press [ENTER] to display the board.");
@@ -139,38 +139,8 @@ public class PlayLadderAndSnakes {
         kb.nextLine();
 
         //Displaying the board
-        las.displayBoard();
-
-        boolean hasWon = false;
-        int turnCounter = 0;
-        int diceRoll;
-        
-        //While loop that restarts until a player has won the game
-        while (hasWon == false) {
-            System.out.println("\nPress [ENTER] to go to the next turn...");
-            kb.nextLine();
-            //The condition below allows to alternate between players rolling
-            if (turnCounter > playerArray.length - 1) {
-                turnCounter -= playerArray.length;
-            }
-            //Rolling dice
-            diceRoll = las.flipDice();
-            System.out.print(playerArray[turnCounter].getColour() + playerArray[turnCounter].getName() + Colour.Reset + " got a dice value of " + diceRoll);
-            //Moving player and handling the land depending on what the player landed on
-            playerArray[turnCounter].movePlayer(diceRoll);
-            playerArray[turnCounter].handleLand(playerArray, las.getSnakes(), las.getLadders());
-            //The condition below is only triggered if a player has won
-            if (playerArray[turnCounter].getHasWon() == true) {
-                hasWon = true;
-                System.out.println(playerArray[turnCounter].getColour() + playerArray[turnCounter].getName() + Colour.Reset + " has won!");
-            }
-            System.out.print("Press [d] to display the board, or ignore with [ENTER]: ");
-            String dp = kb.nextLine();
-            if (dp.equals("d")){
-                System.out.println(); las.displayBoard();
-            }
-            turnCounter++;
-        }
+        las.displayBoard(playerArray);
+        las.play(kb, playerArray);
     }
 }
 // test
