@@ -6,6 +6,7 @@
 //This class contains many helper functions that help with the functionality of the snakes and ladders game.
 //Mostly to declutter the driver. Contains functions to display the board, flip the dice, and some getter methods.
 import java.util.Random;
+import java.util.Scanner;
 
 public class LadderAndSnakes {
     //SHOULD MAYBE INITIALIZE THESE VARIABLES IN A CONSTRUCTOR?
@@ -40,6 +41,41 @@ public class LadderAndSnakes {
             System.out.println();
             System.out.println();
            }
+    }
+
+    public void play(Scanner kb, Player[] playerArray) {
+        this.displayBoard();
+
+        boolean hasWon = false;
+        int turnCounter = 0;
+        int diceRoll;
+        
+        //While loop that restarts until a player has won the game
+        while (hasWon == false) {
+            System.out.println("\nPress [ENTER] to go to the next turn...");
+            kb.nextLine();
+            //The condition below allows to alternate between players rolling
+            if (turnCounter > playerArray.length - 1) {
+                turnCounter -= playerArray.length;
+            }
+            //Rolling dice
+            diceRoll = this.flipDice();
+            System.out.print(playerArray[turnCounter].getColour() + playerArray[turnCounter].getName() + Colour.Reset + " got a dice value of " + diceRoll);
+            //Moving player and handling the land depending on what the player landed on
+            playerArray[turnCounter].movePlayer(diceRoll);
+            playerArray[turnCounter].handleLand(playerArray, this.getSnakes(), this.getLadders());
+            //The condition below is only triggered if a player has won
+            if (playerArray[turnCounter].getHasWon() == true) {
+                hasWon = true;
+                System.out.println(playerArray[turnCounter].getColour() + playerArray[turnCounter].getName() + Colour.Reset + " has won!");
+            }
+            System.out.print("Press [d] to display the board, or ignore with [ENTER]: ");
+            String dp = kb.nextLine();
+            if (dp.equals("d")){
+                System.out.println(); this.displayBoard();
+            }
+            turnCounter++;
+        }
     }
 
     //Method to flip the die
