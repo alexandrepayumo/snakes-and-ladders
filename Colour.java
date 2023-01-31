@@ -3,9 +3,12 @@
 // Written by: Alexandre Payumo 40249777, Benjamin Nguyen 40242621
 // -----------------------------------------------------
 
-//This class is meant to keep track of colours so that the players and special board positions can
-//be displayed uniquely. This class also contains a dictionary that maps the player's colour input
-//to a certain colour.
+// This class implements the COLOUR feature of our game using the ASCII colour codes supported by MOST terminals
+// We developped this game in VS Code, where the console supports ASCII colour codes,
+// however not all IDE's support this feature (although most do), such as ECLIPSE
+// This class is meant to keep track of colours so that the players and special board positions can
+// be displayed uniquely. This class also contains a dictionary that maps the player's colour input
+// to a certain colour.
 
 import java.util.List;
 import java.util.ArrayList;
@@ -29,7 +32,7 @@ public class Colour {
     public static final String BackgroundGreen = "\u001b[42m";
     public static final String BackgroundCyan = "\u001b[46m";
 
-    
+
     // These are the dictionaries and lists
     // colourList is used for when the player chooses their colour
     // making it into a list allows us to more easily remove elements when needed
