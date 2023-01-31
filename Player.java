@@ -3,18 +3,19 @@
 // Written by: Alexandre Payumo 40249777, Benjamin Nguyen 40242621
 // -----------------------------------------------------
 
+//This class is used to represent a player. Has attributes for the player's position, name, colour, etc.
+//Also tracks if a player has won the game yet.
 
 public class Player {
+    //Declaring private attributes
     private int position;
     private String name;
     private String colour;
     private int orderRoll;
     private boolean hasWon;
     private String colourBackground;
-    //private Colour col = new Colour();
-    //does orderRoll need to be initialized in constructor or can it just be initialized using setter
-    //methods called from the driver
     
+    //Parametrized constructor that allows inputs for players' name and colour
     public Player(String name, String colour) {
         this.position = 0;
         this.name = name;
@@ -22,6 +23,7 @@ public class Player {
         this.orderRoll = 0;
         this.hasWon = false;
         
+        //Mapping a background colour to each player
         switch(colour){
             case Colour.Red:
                 this.colourBackground = Colour.BackgroundRed;
@@ -44,6 +46,7 @@ public class Player {
         }
     }
 
+    //Default constructor
     public Player() {
         this.position = 0;
         this.name = "";
@@ -53,20 +56,20 @@ public class Player {
         this.colourBackground = "";
     }
 
+    //This function adds a given amount to the players' current position
     public void movePlayer(int moveAmount) {
         this.position += moveAmount;
-        //System.out.println("POSITION: " + this.position);
     }
 
+    //This function handles landing depending on what tile the player has landed on
     public void handleLand(Player[] players, int[][] snakes, int[][] ladders) {
-        //MAY WANT TO TRANSFER ALL PRINT STATEMENTS INTO THIS FUNCTION
-        //handle all land cases here
+        //If the player has landed on 100, then they have won
         if (this.position == 100) {
             this.hasWon = true;
             System.out.println();
             return;
         }
-        //will need to take other player's positions as params as well as snake head and ladder foot locations
+        //If a player lands on a snake head, move them to the snake bottom
         for (int i = 0; i < snakes.length; i++) {
             if (this.position == snakes[i][0]) {
                 this.position = snakes[i][1];
@@ -74,6 +77,7 @@ public class Player {
                 return;
             }
         }
+        //If a player has landed on the foot of a ladder, send them to the top of it
         for (int i = 0; i < ladders.length; i++) {
             if (this.position == ladders[i][0]) {
                 this.position = ladders[i][1];
@@ -81,38 +85,29 @@ public class Player {
                 return;
             }
         }
-        //THE CODE BELOW MIGHT BE PROBLEMATIC
-        //It might be checking if the player landed on a tile with itself
+        //If a player has landed on another player, send the other player back 1 square
         for (int i = 0; i < players.length; i++) {
             if (this.name != players[i].name && this.position == players[i].getPosition() && this.position != 0) {
                 players[i].setPosition(players[i].getPosition() - 1);
                 System.out.println("; now in square " + this.position);
                 System.out.print(players[i].getColour() + players[i].getName() + Colour.Reset + " rolled back");
                 players[i].handleLand(players, snakes, ladders);
-                //WTFFF
                 return;
             }
-            //recursion?
-            //might want to modify this statement to add a log to the console that the player has been bumped
         }
+        //If a player has landed passed 100, send them back how much they have overstepped 100
         if (this.position > 100) {
-            //this is not working yo
             int backBounce = this.position - 100;
-            //System.out.println("BACKBOUNCE: " + backBounce);
             this.position = 100 - backBounce;
             System.out.print("; bounced");
-            //System.out.println("; bounced back into square " + this.position);
             this.handleLand(players, snakes, ladders);
-            //we need a way for the line above not to reprint text after handling bounce again
-            //recursion?
-            //also might want to check if we bounced back onto someone else
             return;
         }
-        //if we haven't returned, we want default print statement
+        //If a player hasn't had a special land case, just print where they have landed
         System.out.println("; now in square " + this.position);
     }
 
-    // setters
+    // Setter methods
     public void setPosition(int position){
         this.position = position;
     }
@@ -126,7 +121,7 @@ public class Player {
         this.orderRoll = orderRoll;
     }
 
-    // getters
+    // Getter methods
     public int getPosition(){
         return this.position;
     }
@@ -146,6 +141,7 @@ public class Player {
         return this.hasWon;
     }
 
+    //toString method to display this object as a String
     public String toString(){
         return "(Player name: " + this.name + "; Colour: " + this.colour + ")";
     }

@@ -9,13 +9,14 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class LadderAndSnakes {
-    //SHOULD MAYBE INITIALIZE THESE VARIABLES IN A CONSTRUCTOR?
+    //Initializing a new Board that will be used in the game
     Board laddersAndSnakesBoard = new Board();
+    //Getting the board size
     private int[][] board = new int[laddersAndSnakesBoard.getSize()][laddersAndSnakesBoard.getSize()];
-    private int nbOfPlayers;
     
     //Function to display the board
     public void displayBoard(Player[] pArray) {
+        //Print a number for each board tile
         for (int i = 0; i < board.length; i++){
             for (int j = 0; j < board.length; j++){
                 board[i][j] = i*10 + j + 1;
@@ -24,10 +25,8 @@ public class LadderAndSnakes {
     
            for (int i = board.length-1; i > -1; i--){
             for (int j = board.length-1; j > -1; j--){
-                //Print a different colour depending on the board position
-
                 boolean stop = false;
-            
+                //Print a different background colour depending on if there is a player situated there
                 for (int k=0; k<pArray.length; k++){
                     if (board[i][j] == pArray[k].getPosition()){
                         System.out.print(pArray[k].getBackgroundColour() + board[i][j] + Colour.Reset + "\t");
@@ -38,16 +37,16 @@ public class LadderAndSnakes {
 
                 if (stop)
                     continue;
-
+                //Printing different colour for the end tile
                 else if (board[i][j] == 100)
                     System.out.print(Colour.Yellow + board[i][j] + Colour.Reset + "\t");
-                
+                //Printing different colour for the snake head tile
                 else if (Board.checkInArray(this.laddersAndSnakesBoard.getSnakes(), board[i][j]))
                     System.out.print(Colour.Red + board[i][j] + Colour.Reset + "\t");
-                
+                //Printing different colour for the ladder foot tile
                 else if (Board.checkInArray(this.laddersAndSnakesBoard.getLadders(), board[i][j]))
                     System.out.print(Colour.Green + board[i][j] + Colour.Reset + "\t");
-                
+                //Printing some space between each tile
                 else
                     System.out.print(board[i][j] + "\t");
             }
