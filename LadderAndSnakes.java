@@ -57,11 +57,12 @@ public class LadderAndSnakes {
     }
 
     public void play(Scanner kb, Player[] playerArray) {
+        this.displayBoard(playerArray);
 
         boolean hasWon = false;
         int turnCounter = 0;
         int diceRoll;
-        
+
         //While loop that restarts until a player has won the game
         while (hasWon == false) {
             System.out.println("\nPress [ENTER] to go to the next turn...");

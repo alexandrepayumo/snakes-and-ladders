@@ -139,7 +139,7 @@ public class PlayLadderAndSnakes {
         kb.nextLine();
 
         //Displaying the board
-        las.displayBoard(playerArray);
+        
         las.play(kb, playerArray);
     }
 }
