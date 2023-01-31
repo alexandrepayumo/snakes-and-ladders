@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.Hashtable;
 
 public class Colour {
-    //Codes for text colour
+    //Codes for text colour so that we don't have to type out the ASCII codes every time
     public static final String Reset = "\u001b[0m";
     public static final String Red = "\u001b[31m";
     public static final String Blue = "\u001b[34m";
@@ -29,6 +29,13 @@ public class Colour {
     public static final String BackgroundGreen = "\u001b[42m";
     public static final String BackgroundCyan = "\u001b[46m";
 
+    
+    // These are the dictionaries and lists
+    // colourList is used for when the player chooses their colour
+    // making it into a list allows us to more easily remove elements when needed
+    // (eg. when player 1 chooses red, then player 2 shouldn't have the option of choosing red)
+    // colourDict assigns the keyboard inputs to the right colours
+    // matchingDict merges the two, assigning the keyboard inputs to the String used for selecting colour by the players
 
     private List<String> colourList = new ArrayList();
     private Hashtable<String, String> colourDict = new Hashtable<String, String>();
