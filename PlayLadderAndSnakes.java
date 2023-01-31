@@ -27,6 +27,9 @@ public class PlayLadderAndSnakes {
         //Welcome player to the snakes and ladders game
         System.out.println("\n~~~~~~~~~ Welcome to this game of Snakes and Ladders ~~~~~~~~~~");
 
+        //Tell user not to use Eclipse
+        System.out.println("This program works best in VisualStudio code since it uses colours!!! Eclipse not recommended");
+        
         //Give instructions to user
         System.out.println("\nPlease maximize console size for optimal viewing experience.");
 
