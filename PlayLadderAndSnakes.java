@@ -12,8 +12,6 @@
 //displays the board and ultimately ends with something winning the game.
 
 import java.util.Scanner;
-import java.util.List;
-import java.util.ArrayList;
 
 public class PlayLadderAndSnakes {
     public static void main(String[] args) {
